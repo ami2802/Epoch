@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Epoch | New Tab Age Counter",
+  "version": "1.0",
+  "description": "A reminder that that every second counts.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}

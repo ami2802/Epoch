@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New tab</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400&family=Outfit:wght@300;400;600&family=Roboto:wght@300;400;700&family=Montserrat:wght@300;400;600&family=Poppins:wght@300;400;600&family=Open+Sans:wght@300;400;600&family=Space+Grotesk:wght@300;400;600&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div id="onboarding-view" class="view hidden">
+            <div class="glass-container onboarding-container">
+                <h2>Enter your birthday</h2>
+
+                <div class="settings-grid">
+                    <div class="setting-row birth-date-row">
+                        <input type="date" id="onboarding-birth-date-input">
+                    </div>
+                    <p class="onboarding-hint" style="visibility: hidden;">Placeholder</p>
+                </div>
+
+                <div class="bottom-actions onboarding-actions">
+                    <button id="onboarding-continue-btn" class="action-btn primary">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="onboarding-message-view" class="view hidden">
+            <div class="glass-container onboarding-container">
+                <h2>Enter a message to yourself</h2>
+
+                <div class="settings-grid">
+                    <div class="setting-row onboarding-message-row">
+                        <div class="input-wrapper">
+                            <textarea id="onboarding-message-input" placeholder="Optional" rows="1"></textarea>
+                        </div>
+                    </div>
+                    <p class="onboarding-hint">You can change this later</p>
+                </div>
+
+                <div class="bottom-actions onboarding-actions">
+                    <button id="onboarding-message-continue-btn" class="action-btn primary">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="setup-view" class="view hidden">
+            <div class="glass-container">
+                <h2>Settings</h2>
+
+                <div class="settings-grid">
+                    <h3 class="section-title" id="general-section-title">General</h3>
+
+                    <div class="setting-row">
+                        <label for="birth-date-input">Date of birth</label>
+                        <input type="date" id="birth-date-input">
+                    </div>
+
+                    <div class="setting-row">
+                        <label>Theme</label>
+                        <div class="button-group presets">
+                            <button id="preset-dark" class="action-btn secondary">Dark</button>
+                            <button id="preset-light" class="action-btn secondary">Light</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <label for="hex-bg">Background</label>
+                        <div class="color-control">
+                            <input type="text" id="hex-bg" class="hex-input" maxlength="7">
+                            <input type="color" id="color-bg">
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">Age Counter</h3>
+
+                    <div class="setting-row">
+                        <label for="decimal-input">Decimal Places</label>
+                        <div class="slider-container">
+                            <input type="range" id="decimal-input" min="0" max="10" step="1">
+                            <span id="decimal-value">8</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <label for="font-select">Font</label>
+                        <div class="custom-select" id="font-select-age">
+                            <div class="select-trigger">
+                                <span class="current-font" id="age-font-current">System</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="select-options">
+                                <div class="option"
+                                    data-value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+                                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+                                    System</div>
+                                <div class="option" data-value="'JetBrains Mono', monospace"
+                                    style="font-family: 'JetBrains Mono', monospace">JetBrains Mono</div>
+                                <div class="option" data-value="'Inter', sans-serif"
+                                    style="font-family: 'Inter', sans-serif">Inter</div>
+                                <div class="option" data-value="'Roboto', sans-serif"
+                                    style="font-family: 'Roboto', sans-serif">Roboto</div>
+                                <div class="option" data-value="'Outfit', sans-serif"
+                                    style="font-family: 'Outfit', sans-serif">Outfit</div>
+                                <div class="option" data-value="'Montserrat', sans-serif"
+                                    style="font-family: 'Montserrat', sans-serif">Montserrat</div>
+                                <div class="option" data-value="'Poppins', sans-serif"
+                                    style="font-family: 'Poppins', sans-serif">Poppins</div>
+                                <div class="option" data-value="'Open Sans', sans-serif"
+                                    style="font-family: 'Open Sans', sans-serif">Open Sans</div>
+                                <div class="option" data-value="'Space Grotesk', sans-serif"
+                                    style="font-family: 'Space Grotesk', sans-serif">Space Grotesk</div>
+                                <div class="option" data-value="'Lato', sans-serif"
+                                    style="font-family: 'Lato', sans-serif">Lato</div>
+                            </div>
+                        </div>
+                        <select id="font-select" class="hidden"></select>
+                    </div>
+
+                    <div class="setting-row">
+                        <label for="hex-age">Color</label>
+                        <div class="color-control">
+                            <input type="text" id="hex-age" class="hex-input" maxlength="7">
+                            <input type="color" id="color-age">
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <label for="hex-label">Label Color</label>
+                        <div class="color-control">
+                            <input type="text" id="hex-label" class="hex-input" maxlength="7">
+                            <input type="color" id="color-label">
+                        </div>
+                    </div>
+                    <div class="setting-row">
+                        <label for="hide-age-label">Hide Label</label>
+                        <input type="checkbox" id="hide-age-label">
+                    </div>
+
+                    <h3 class="section-title">Message</h3>
+
+                    <div class="setting-row">
+                        <label for="custom-quote-input">Text</label>
+                        <div class="input-wrapper">
+                            <textarea id="custom-quote-input" placeholder="Optional" rows="1"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <label for="font-select-message">Font</label>
+                        <div class="custom-select" id="font-select-message-custom">
+                            <div class="select-trigger">
+                                <span class="current-font" id="message-font-current">System</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="select-options">
+                                <div class="option"
+                                    data-value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+                                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+                                    System</div>
+                                <div class="option" data-value="'JetBrains Mono', monospace"
+                                    style="font-family: 'JetBrains Mono', monospace">JetBrains Mono</div>
+                                <div class="option" data-value="'Inter', sans-serif"
+                                    style="font-family: 'Inter', sans-serif">Inter</div>
+                                <div class="option" data-value="'Roboto', sans-serif"
+                                    style="font-family: 'Roboto', sans-serif">Roboto</div>
+                                <div class="option" data-value="'Outfit', sans-serif"
+                                    style="font-family: 'Outfit', sans-serif">Outfit</div>
+                                <div class="option" data-value="'Montserrat', sans-serif"
+                                    style="font-family: 'Montserrat', sans-serif">Montserrat</div>
+                                <div class="option" data-value="'Poppins', sans-serif"
+                                    style="font-family: 'Poppins', sans-serif">Poppins</div>
+                                <div class="option" data-value="'Open Sans', sans-serif"
+                                    style="font-family: 'Open Sans', sans-serif">Open Sans</div>
+                                <div class="option" data-value="'Space Grotesk', sans-serif"
+                                    style="font-family: 'Space Grotesk', sans-serif">Space Grotesk</div>
+                                <div class="option" data-value="'Lato', sans-serif"
+                                    style="font-family: 'Lato', sans-serif">Lato</div>
+                            </div>
+                        </div>
+                        <select id="message-font-select" class="hidden"></select>
+                    </div>
+
+                    <div class="setting-row">
+                        <label for="hex-quote">Color</label>
+                        <div class="color-control">
+                            <input type="text" id="hex-quote" class="hex-input" maxlength="7">
+                            <input type="color" id="color-quote">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="bottom-actions">
+                    <button id="reset-defaults" class="text-btn danger">RESET TO DEFAULTS</button>
+                    <button id="save-btn" class="action-btn primary">Save & Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="counter-view" class="view hidden">
+            <div id="container">
+                <div id="age-label">YOUR AGE IS</div>
+                <div id="age">0.000000000</div>
+                <div id="message-display">"The best time to plant a tree was 20 years ago. The second best time is
+                    now."
+                </div>
+                <button id="settings-btn" title="Settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tip-popup" class="hidden">
+        <div class="tip-content">
+            <span>If Chrome is adding a footer, right click to hide it!</span>
+            <button id="close-tip" class="close-tip-btn" title="Dismiss">&times;</button>
+        </div>
+    </div>
+
+    <div id="settings-tip" class="hidden">
+        <div class="tip-content">
+            <span>Click here to customize your settings!</span>
+            <button id="close-settings-tip" class="close-tip-btn" title="Dismiss">&times;</button>
+            <div class="tip-arrow"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
